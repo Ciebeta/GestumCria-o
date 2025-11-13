@@ -1,0 +1,4 @@
+project_id = "jimjbshksjqlhsnomqzx"
+
+[functions.ajuda-estudos]
+verify_jwt = true

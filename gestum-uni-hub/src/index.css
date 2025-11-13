@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Futuristic Blue-Black Design System ===== */
+
+@layer base {
+  :root {
+    /* Font tokens (used by body and headings) */
+    --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --font-heading: Merriweather, Georgia, Cambria, "Times New Roman", Times, serif;
+
+    /* Base */
+    --background: 220 18% 6%;
+    --foreground: 210 30% 96%;
+
+    --card: 220 18% 8%;
+    --card-foreground: 210 35% 96%;
+
+    --primary: 215 78% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 215 85% 64%;
+
+    --secondary: 220 18% 14%;
+    --secondary-foreground: 210 35% 90%;
+
+    --muted: 220 12% 12%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 200 95% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 145 60% 45%;
+    --warning: 45 100% 55%;
+    --destructive: 0 75% 55%;
+
+    --success-foreground: 0 0% 100%;
+    --warning-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 12% 18%;
+    --input: 220 12% 16%;
+    --ring: 215 85% 56%;
+    --radius: 0.6rem;
+
+    --sidebar-background: 220 22% 5%;
+    --sidebar-foreground: 210 35% 96%;
+    --sidebar-primary: 215 80% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 18% 10%;
+    --sidebar-accent-foreground: 210 35% 96%;
+    --sidebar-border: 220 18% 16%;
+    --sidebar-ring: 215 80% 52%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(215 78% 58%) 0%, hsl(200 95% 60%) 100%);
+    --gradient-card: linear-gradient(to bottom right, hsl(220 18% 8%) 0%, hsl(220 22% 6%) 100%);
+
+    --shadow-sm: 0 1px 4px hsl(215 50% 8% / 0.08);
+    --shadow-md: 0 8px 18px hsl(215 70% 8% / 0.14);
+    --shadow-lg: 0 18px 40px hsl(215 80% 8% / 0.22);
+    --shadow-xl: 0 30px 80px hsl(215 85% 8% / 0.28);
+
+    --transition-base: all 0.28s cubic-bezier(0.45, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.45, 0, 0.2, 1);
+
+    --background-texture: url('/textures/noise-light.png');
+  }
+
+  .dark {
+    --background: 220 30% 5%;
+    --foreground: 210 35% 98%;
+    --card: 220 20% 9%;
+    --primary: 215 90% 58%;
+    --accent: 200 95% 63%;
+    --muted: 220 15% 10%;
+    --border: 220 20% 18%;
+    --ring: 215 90% 60%;
+    --sidebar-background: 220 25% 4%;
+    --sidebar-accent: 220 20% 10%;
+  }
+
+  /* Global reset & smooth transitions */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition-property: color, background-color, border-color, transform, filter;
+    transition-duration: 0.3s;
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55)), var(--background-texture), var(--gradient-card);
+    background-blend-mode: normal, soft-light, normal;
+    background-size: cover, 500px 500px, cover;
+    background-attachment: fixed;
+    transition: var(--transition-slow);
+    color-scheme: dark;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    cursor: pointer;
+    transition: transform 0.25s ease, filter 0.25s ease, color 0.25s ease;
+  }
+
+  a:hover,
+  button:hover {
+    transform: translateY(-1px) scale(1.02);
+    filter: brightness(1.1);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(var(--ring)/0.35);
+    border-radius: var(--radius);
+  }
+
+  /* Cards */
+  .card {
+    background: linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--card) / 0.9));
+    color: hsl(var(--card-foreground));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 1.25rem;
+    border: 1px solid hsl(var(--border) / 0.5);
+    transition: var(--transition-base);
+    backdrop-filter: blur(6px) saturate(120%);
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px) scale(1.003);
+  }
+
+  /* Headings & Text */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-family: var(--font-heading);
+    color: hsl(var(--foreground));
+  }
+
+  p {
+    line-height: 1.75;
+    opacity: 0.95;
+  }
+
+  /* Buttons & Inputs */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--ring) / 0.12);
+    box-shadow: 0 8px 20px hsl(var(--primary) / 0.12);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px hsl(var(--primary) / 0.18); }
+
+  input, textarea, select {
+    background: hsl(var(--input));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+    box-shadow: inset 0 1px 0 hsl(var(--ring) / 0.04);
+    padding: 0.5rem 0.75rem;
+    border-radius: calc(var(--radius) - 2px);
+  }
+}
