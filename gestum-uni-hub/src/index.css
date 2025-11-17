@@ -63,7 +63,7 @@
     --transition-base: all 0.28s cubic-bezier(0.45, 0, 0.2, 1);
     --transition-slow: all 0.5s cubic-bezier(0.45, 0, 0.2, 1);
 
-    --background-texture: url('/textures/noise-light.png');
+    --background-texture: none;
   }
 
   .dark {

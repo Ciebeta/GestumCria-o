@@ -8,6 +8,7 @@ const config: Config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./gestum-uni-hub/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
